@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <diskStore path="java.io.tmpdir" />
+    <defaultCache maxElementsInMemory="50" eternal="false" timeToIdleSeconds="1200" timeToLiveSeconds="1200" overflowToDisk="true" />
+    <cache name="securityContainer" 
+           maxElementsInMemory="50" 
+           maxElementsOnDisk="500" 
+           eternal="false" 
+           overflowToDisk="true" 
+           timeToIdleSeconds="3600" 
+           timeToLiveSeconds="900" 
+           memoryStoreEvictionPolicy="LFU">
+               <cacheEventListenerFactory class="com.demosos.secure.listener.SecurityContainerFactory" properties=""/>
+    </cache>
+</ehcache>
