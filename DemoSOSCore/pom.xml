@@ -2,12 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
 		 					 http://maven.apache.org/maven-v4_0_0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.demosos</groupId>
 	<artifactId>DemoSOSCore</artifactId>
 	<packaging>war</packaging>
 	<version>0.1.0.BUILD-SNAPSHOT</version>
 	<name>DemoSOSCore</name>
+
 	<properties>
 		<roo.version>1.1.5.RELEASE</roo.version>
 		<spring.version>3.0.5.RELEASE</spring.version>
@@ -16,6 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring-security.version>3.0.5.RELEASE</spring-security.version>
 	</properties>
+
 	<repositories>
 		<repository>
 			<id>spring-maven-release</id>
@@ -32,14 +35,13 @@
 			<name>Spring Roo Repository</name>
 			<url>http://spring-roo-repository.springsource.org/release</url>
 		</repository>
-
 		<repository>
 			<id>spring-milestone</id>
 			<name>SpringSource Milestone Repository</name>
 			<url>http://repo.springsource.org/milestone</url>
 		</repository>
-
 	</repositories>
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-maven-release</id>
@@ -57,6 +59,7 @@
 			<url>http://spring-roo-repository.springsource.org/release</url>
 		</pluginRepository>
 	</pluginRepositories>
+
 	<dependencies>
 		<!-- General dependencies for standard applications -->
 		<dependency>
@@ -172,13 +175,11 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.mobile</groupId>
 			<artifactId>spring-mobile-device</artifactId>
 			<version>1.1.0.RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -472,17 +473,15 @@
 			<version>${spring-security.version}</version>
 			<classifier />
 		</dependency>
-
 		<!--dependency> <groupId>org.springframework.security</groupId> <artifactId>spring-security-crypto</artifactId> 
 			<version>${spring-security.version}</version> <classifier/> </dependency -->
-
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
-
 	</dependencies>
+
 	<build>
 			<plugins>
 				<plugin>
@@ -569,60 +568,15 @@
 						</descriptorRefs>
 					</configuration>
 				</plugin>
-
-
 				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
 					<artifactId>tomcat7-maven-plugin</artifactId>
 					<version>2.2</version>
 				</plugin>
-
-
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>2.6</version>
-				</plugin>
-				<!-- IDE -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-eclipse-plugin</artifactId>
-					<version>2.7</version>  <!-- Note 2.8 does not work with AspectJ aspect path -->
-					<configuration>
-						<downloadSources>true</downloadSources>
-						<downloadJavadocs>false</downloadJavadocs>
-						<wtpversion>2.0</wtpversion>
-						<additionalBuildcommands>
-							<buildCommand>
-								<name>org.eclipse.ajdt.core.ajbuilder</name>
-								<arguments>
-									<aspectPath>org.springframework.aspects</aspectPath>
-								</arguments>
-							</buildCommand>
-							<buildCommand>
-								<name>org.springframework.ide.eclipse.core.springbuilder</name>
-							</buildCommand>
-						</additionalBuildcommands>
-						<additionalProjectnatures>
-							<projectnature>org.eclipse.ajdt.ui.ajnature</projectnature>
-							<projectnature>com.springsource.sts.roo.core.nature</projectnature>
-							<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-						</additionalProjectnatures>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-idea-plugin</artifactId>
-					<version>2.2</version>
-					<configuration>
-						<downloadSources>true</downloadSources>
-						<dependenciesAsLibraries>true</dependenciesAsLibraries>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>2.2</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -641,4 +595,5 @@
 				</plugin>
 			</plugins>
 	</build>
+
 </project>
