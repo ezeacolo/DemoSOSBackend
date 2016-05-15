@@ -65,18 +65,11 @@ public class Incidente implements Serializable {
     @NotNull
     private String pais;
     @NotNull
-    private String latitud;//Coordenadas?
+    private String latitud;
     @NotNull
-    private String longitud;//Coordenadas?
-    //id tmp utilizado para el Adjunto de las imagenes subidas al server
-    @Transient
-    private Long idTmp;
+    private String longitud;
     @Transient
     private Double distancia;
-    //, fetch = FetchType.LAZY, cascade = CascadeType.REMOVE
-    @OneToMany(targetEntity = Adjunto.class, mappedBy = "incidente",
-            cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Adjunto> adjuntos;
     //campos de control
     @Column(name = "fecha_creacion")
     //@JsonSerialize(using=JsonDateSerializer.class)
@@ -96,23 +89,6 @@ public class Incidente implements Serializable {
     //constructores
     public Incidente() {
     }
-
-    /*public Incidente(final Long id, final Date fechaAlta, final String direccion, final String latitud, final String longitud,
-                     final String localidad, final String provincia, final String barrio, final Prioridad prioridad,
-                     final TipoIncidente tipoIncidente, final String observaciones, final String creadoPor) {
-        this.id = id;
-        this.fechaAlta = fechaAlta;
-        this.direccion = direccion;
-        this.latitud = latitud;
-        this.longitud = longitud;
-        this.localidad = localidad;
-        this.provincia = provincia;
-        this.barrio = barrio;
-        this.prioridad = prioridad;
-        this.tipoIncidente = tipoIncidente;
-        this.observaciones = observaciones;
-        this.creadoPor = creadoPor;
-    }*/
 
     //instancia de em
     public static final EntityManager entityManager() {
@@ -257,14 +233,6 @@ public class Incidente implements Serializable {
         this.longitud = longitud;
     }
 
-    public Set<Adjunto> getAdjuntos() {
-        return adjuntos;
-    }
-
-    public void setAdjuntos(Set<Adjunto> adjuntos) {
-        this.adjuntos = adjuntos;
-    }
-
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
@@ -297,15 +265,6 @@ public class Incidente implements Serializable {
     public void setActualizadoPor(String actualizadoPor) {
         this.actualizadoPor = actualizadoPor;
     }
-
-    public Long getIdTmp() {
-        return idTmp;
-    }
-
-    public void setIdTmp(Long idTmp) {
-        this.idTmp = idTmp;
-    }
-
     public Double getDistancia() {
         return distancia;
     }
